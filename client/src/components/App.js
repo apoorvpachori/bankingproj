@@ -1,11 +1,13 @@
 import React from "react";
-
-const App = () => {
-  return (
-    <div>
-      <h1>Hi!</h1>
-    </div>
-  );
-};
+import Registration from "./Registration";
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Registration />
+      </div>
+    );
+  }
+}
 
 export default App;
