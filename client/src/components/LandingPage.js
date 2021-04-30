@@ -1,18 +1,16 @@
 import React from "react"
 
-import AccBtn from "./components/AccBtn"
-import TransferBtn from "./components/TransferBtn"
-import DepositBtn from "./components/DepositBtn"
-import Header from "./components/Header"
+import AccBtn from "./AccBtn"
+import TransferBtn from "./TransferBtn"
+import DepositBtn from "./DepositBtn"
 
 class LandingPage extends React.Component  {
   constructor(){
     super()
     this.state = {
-      loading: false,
       pos: 0,
       username: {},
-      ammount: {},
+      amount: {},
     }
     //Binding functions inside the constructor
     this.handleClick1 = this.handleClick1.bind(this)
@@ -33,18 +31,20 @@ class LandingPage extends React.Component  {
     this.setState({pos:3})
     console.log("Deposit Via Check was clicked")
   }
-  /*
+  
   componentDidMount(){
-    this.setState({loading: true})
-    fetch("")
-    .then(response => response.json())
-    .then(data =>{
-        this.setState({
-            character: data
-        })
+    fetch("http://localhost:7000/users/1", {
+      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
     })
-}
-*/
+    .then( (data) =>{
+      console.log(data)
+    })
+  }
+
   render(){
     return(
       <div>
