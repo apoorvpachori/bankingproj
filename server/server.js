@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt");
 const con = require("./db");
+var cors = require("cors");
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/users", (req, res) => {
@@ -21,9 +23,6 @@ app.get("/users/:id", (req, res) => {
   );
 });
 app.post("/login", async (req, res) => {
-  console.log(req.body.email);
-  console.log(req.body.password);
-
   if (req.body.password && req.body.email) {
     con.query(
       `SELECT * FROM users
