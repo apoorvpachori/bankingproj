@@ -1,18 +1,20 @@
 import React from "react";
+import "../../css/Profile.css";
 
-import AccBtn from "./AccBtn";
-import TransferBtn from "./TransferBtn";
-import DepositBtn from "./DepositBtn";
+import Nav from "./Nav";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import TransferPage from "./TransferPage";
+import DepositPage from "./DepositPage";
+import AccountPage from "./AccountPage";
 
 class Profile extends React.Component {
   constructor() {
     super();
-    this.state = { user: "" };
-    //Binding functions inside the constructor
-    this.handleClick1 = this.handleClick1.bind(this);
-    this.handleClick2 = this.handleClick2.bind(this);
-    this.handleClick3 = this.handleClick3.bind(this);
-    /*this.componentDidMount = this.componentDidMount.bind(this)*/
+    this.state = {
+      pos: 0,
+      username: {},
+      amount: {},
+    };
   }
   //Handle Clicks
   handleClick1() {
@@ -28,27 +30,23 @@ class Profile extends React.Component {
     console.log("Deposit Via Check was clicked");
   }
 
-  componentDidMount() {
-    if (this.props.user !== "") {
-      this.setState({ user: this.props.user });
-      console.log(this.state.user.username);
-    }
-  }
+  componentDidMount() {}
 
   render() {
-    if (this.state.user === "") {
-      return <p>Please log in</p>;
-    } else {
-      return (
+    return (
+      <Router>
         <div>
-          <h1>Welcome, {this.state.user.username} </h1>
-          <h2>Balance {this.state.user.amount}</h2>
-          <AccBtn handleClick1={this.handleClick1} data={this.state} />
-          <TransferBtn handleClick1={this.handleClick2} data={this.state} />
-          <DepositBtn handleClick1={this.handleClick3} data={this.state} />
+          <h1>Welcome, insFname insLname</h1>
+          <h2>Display balance</h2>
+          <Nav />
+          <Switch>
+            <Route path="/AccountPage" exact component={AccountPage} />
+            <Route path="/TransferPage" exact component={TransferPage} />
+            <Route path="/DepositPage" exact component={DepositPage} />
+          </Switch>
         </div>
-      );
-    }
+      </Router>
+    );
   }
 }
 export default Profile;

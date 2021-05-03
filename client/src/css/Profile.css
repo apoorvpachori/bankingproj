@@ -1,0 +1,50 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+}
+
+.App {
+  text-align: center;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 65px 50px;
+  background: rgb(6, 64, 136);
+  color: rgb(255, 255, 255);
+
+  margin-left: 25%;
+}
+
+.btn:hover {
+  background: #444;
+}
+
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+p {
+  font-size: 15px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 15vh;
+  color: white;
+}
+
+.nav-links {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
