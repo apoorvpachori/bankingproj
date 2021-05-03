@@ -1,9 +1,18 @@
+import axios from "axios";
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Link } from "react-router-dom";
+
 import "../css/Registration.css";
 
 class Registration extends React.Component {
-  state = { firstName: "", lastName: "", email: "", password: "" };
+  state = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    status: false,
+  };
 
   handleFirstNameChange = (e) => {
     this.setState({ firstName: e.target.value });
@@ -20,23 +29,26 @@ class Registration extends React.Component {
   };
 
   onSubmitHandler = async (e) => {
+    console.log(this.state.firstName + " " + this.state.lastName);
+    console.log(this.state.password);
+    console.log(this.state.email);
     e.preventDefault();
     console.log("submit pressed");
-    const response = await fetch("http://localhost:7000/users", {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: {
-        username: this.state.firstName + this.state.lastName,
-        password: this.state.lastName,
+    axios
+      .post("http://localhost:7000/users", {
+        username: this.state.firstName + " " + this.state.lastName,
+        password: this.state.password,
         email: this.state.email,
         amount: 100,
-      },
-    });
-    console.log(response.json());
+      })
+      .then((res) => {
+        console.log(res);
+        this.setState({ status: true });
+        if (res.data === "") {
+          this.setState({ status: false });
+        }
+      });
   };
-
   render() {
     return (
       <div className="form-container">
@@ -84,6 +96,12 @@ class Registration extends React.Component {
           </FormGroup>
           <Button>Submit</Button>
         </Form>
+
+        <Label>
+          {this.state.status ? "Registered" : " Not Yet Registered"}
+        </Label>
+        <br />
+        <Link to="/">Back</Link>
       </div>
     );
   }
