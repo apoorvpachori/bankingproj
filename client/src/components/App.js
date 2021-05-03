@@ -10,6 +10,7 @@ import { Label } from "reactstrap";
 
 class App extends React.Component {
   state = { user: "" };
+
   onLogin = async (email, password) => {
     await axios
       .post("http://localhost:7000/login", {
@@ -30,8 +31,11 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({ user: JSON.parse(localStorage.getItem("user")) });
+    if (localStorage.getItem("user") !== null) {
+      this.setState({ user: JSON.parse(localStorage.getItem("user")) });
+    }
   }
+
   render() {
     return (
       <div>
@@ -51,7 +55,11 @@ class App extends React.Component {
               <Logout onSubmit={this.onLogout} />
             </Route>
           </Switch>
-          <Label>{this.state.user.username}</Label>
+          <Label>
+            {this.state.user === ""
+              ? `Please Log in`
+              : `Hello ${this.state.user.username}`}
+          </Label>
         </Router>
       </div>
     );
