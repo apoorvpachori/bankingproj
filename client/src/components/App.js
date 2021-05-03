@@ -1,6 +1,7 @@
 import React from "react";
 import Registration from "./Registration";
 import Login from "./Login";
+import Logout from "./Logout";
 import Profile from "../components/profile/Profile";
 import Home from "./Home";
 import axios from "axios";
@@ -10,7 +11,6 @@ import { Label } from "reactstrap";
 class App extends React.Component {
   state = { user: "" };
   onLogin = async (email, password) => {
-    console.log("in this method");
     await axios
       .post("http://localhost:7000/login", {
         email: email,
@@ -19,9 +19,18 @@ class App extends React.Component {
       .then((res) => {
         console.log(res);
         this.setState({ user: res.data[0] });
+        localStorage.setItem("user", JSON.stringify(res.data[0]));
       });
   };
 
+  onLogout = () => {
+    localStorage.clear();
+    this.setState({ user: "" });
+  };
+
+  componentDidMount() {
+    this.setState({ user: JSON.parse(localStorage.getItem("user")) });
+  }
   render() {
     return (
       <div>
@@ -36,6 +45,9 @@ class App extends React.Component {
             </Route>
             <Route path="/login">
               <Login onSubmit={this.onLogin} />
+            </Route>
+            <Route path="/logout">
+              <Logout onSubmit={this.onLogout} />
             </Route>
           </Switch>
           <Label>

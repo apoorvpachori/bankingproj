@@ -36,15 +36,19 @@ class Profile extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1>Welcome, insFname insLname</h1>
-        <h2>Display balance</h2>
-        <AccBtn handleClick1={this.handleClick1} data={this.state} />
-        <TransferBtn handleClick1={this.handleClick2} data={this.state} />
-        <DepositBtn handleClick1={this.handleClick3} data={this.state} />
-      </div>
-    );
+    if (this.state.user === "") {
+      return <p>Please log in</p>;
+    } else {
+      return (
+        <div>
+          <h1>Welcome, {this.state.user.username} </h1>
+          <h2>Balance {this.state.user.amount}</h2>
+          <AccBtn handleClick1={this.handleClick1} data={this.state} />
+          <TransferBtn handleClick1={this.handleClick2} data={this.state} />
+          <DepositBtn handleClick1={this.handleClick3} data={this.state} />
+        </div>
+      );
+    }
   }
 }
 export default Profile;
