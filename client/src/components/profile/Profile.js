@@ -1,37 +1,30 @@
 import React from "react";
-import "../../css/Profile.css";
-
 import Nav from "./Nav";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import TransferPage from "./TransferPage";
 import DepositPage from "./DepositPage";
 import AccountPage from "./AccountPage";
+import "../../css/Profile.css";
 
 class Profile extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      pos: 0,
-      username: {},
-      amount: {},
-    };
-  }
-
   render() {
-    return (
-      <Router>
+    if (this.props.user === "") {
+      return <p>Please log in.</p>;
+    } else {
+      return (
         <div>
-          <h1>Welcome, insFname insLname</h1>
-          <h2>Display balance</h2>
+          <h1>Welcome, {this.props.user.username}</h1>
+          <h2>Display {this.props.user.amount}</h2>
           <Nav />
           <Switch>
-            <Route path="/AccountPage" exact component={AccountPage} />
-            <Route path="/TransferPage" exact component={TransferPage} />
-            <Route path="/DepositPage" exact component={DepositPage} />
+            <Route path="/profile/AccountPage" component={AccountPage} />
+            <Route path="/profile/TransferPage" component={TransferPage} />
+            <Route path="/profile/DepositPage" component={DepositPage} />
           </Switch>
+          <Link to="/">Back</Link>
         </div>
-      </Router>
-    );
+      );
+    }
   }
 }
 export default Profile;
