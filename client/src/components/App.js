@@ -19,6 +19,7 @@ class App extends React.Component {
       .then((res) => {
         console.log(res);
         this.setState({ user: res.data[0] });
+        console.log(JSON.stringify(res.data[0]));
         localStorage.setItem("user", JSON.stringify(res.data[0]));
       });
   };
@@ -50,11 +51,7 @@ class App extends React.Component {
               <Logout onSubmit={this.onLogout} />
             </Route>
           </Switch>
-          <Label>
-            {this.state.user === ""
-              ? "User is not logged in"
-              : `Hello, ${this.state.user.username}`}
-          </Label>
+          <Label>{this.state.user.username}</Label>
         </Router>
       </div>
     );
