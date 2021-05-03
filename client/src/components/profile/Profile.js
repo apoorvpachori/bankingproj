@@ -7,11 +7,7 @@ import DepositBtn from "./DepositBtn";
 class Profile extends React.Component {
   constructor() {
     super();
-    this.state = {
-      pos: 0,
-      username: {},
-      amount: {},
-    };
+    this.state = { user: "" };
     //Binding functions inside the constructor
     this.handleClick1 = this.handleClick1.bind(this);
     this.handleClick2 = this.handleClick2.bind(this);
@@ -33,15 +29,10 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:7000/users/1", {
-      method: "GET", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-    }).then((data) => {
-      console.log(data);
-    });
+    if (this.props.user !== "") {
+      this.setState({ user: this.props.user });
+      console.log(this.state.user.username);
+    }
   }
 
   render() {

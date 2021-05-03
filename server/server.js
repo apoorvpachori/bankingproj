@@ -7,12 +7,14 @@ var cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
+//looking at all the possible users
 app.get("/users", (req, res) => {
   con.query("SELECT * FROM users", (err, result) => {
     res.json(result);
   });
 });
 
+//grabbing a user information by id
 app.get("/users/:id", (req, res) => {
   con.query(
     `SELECT * FROM users
@@ -22,7 +24,9 @@ app.get("/users/:id", (req, res) => {
     }
   );
 });
-app.post("/login", async (req, res) => {
+
+//for checking log in
+app.post("/login", (req, res) => {
   if (req.body.password && req.body.email) {
     con.query(
       `SELECT * FROM users
@@ -37,6 +41,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
+//for updating user balance
 app.post("/users/:id", (req, res) => {
   let curramount = 0;
   console.log(req.params.id);
@@ -62,6 +67,7 @@ app.post("/users/:id", (req, res) => {
   res.json({ message: "didn't go through" });
 });
 
+//for inserting users into the database
 app.post("/users", async (req, res) => {
   if (
     req.body.username &&
@@ -80,6 +86,7 @@ app.post("/users", async (req, res) => {
   }
 });
 
+//start the server
 app.listen(7000, () => {
   console.log("listening on 7000");
 });
