@@ -16,21 +16,6 @@ class Profile extends React.Component {
       amount: {},
     };
   }
-  //Handle Clicks
-  handleClick1() {
-    this.setState({ pos: 1 });
-    console.log("Open/Close Account was clicked");
-  }
-  handleClick2() {
-    this.setState({ pos: 2 });
-    console.log("Transfer Funds was clicked");
-  }
-  handleClick3() {
-    this.setState({ pos: 3 });
-    console.log("Deposit Via Check was clicked");
-  }
-
-  componentDidMount() {}
 
   render() {
     return (
