@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
 
 import "../css/Login.css";
@@ -19,7 +19,6 @@ class Login extends React.Component {
   };
   onFormSubmit = (event) => {
     event.preventDefault();
-
     this.props.onSubmit(this.state.email, this.state.password);
   };
   render() {
@@ -47,7 +46,7 @@ class Login extends React.Component {
               onChange={this.handlePasswordChange}
             />
           </FormGroup>
-          <Button>Log in</Button>
+          <input type="submit" value="Submit" />
         </Form>
 
         <Label>
