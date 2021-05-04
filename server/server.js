@@ -43,28 +43,48 @@ app.post("/login", (req, res) => {
 
 //for updating user balance
 app.post("/users/:id", (req, res) => {
-  let curramount = 0;
   console.log(req.params.id);
-  con.query(
-    `SELECT * FROM users
+  console.log(req.body.num);
+  console.log(req.body.amount);
+
+  if (req.params.id && req.body.num && req.body.amount) {
+    let curramount = 0;
+    acc = "";
+
+    console.log(`id is ${req.params.id} `);
+    console.log(`num acc is ${req.body.num} `);
+    console.log(`amount is ${req.body.amount}`);
+
+    con.query(
+      `SELECT * FROM users
         WHERE id='${req.params.id}';`,
-    (err, result) => {
-      console.log("in here");
-      console.log(result[0].amount);
-      curramount = result[0].amount + req.body.amount;
-      con.query(
-        `UPDATE users
-            SET amount = ${curramount}
-            WHERE id = ${req.params.id};`,
-        (err, result) => {
-          if (result) {
-            console.log("updated");
-          }
+      (err, result) => {
+        if (req.body.num === 1) {
+          curramount = result[0].amount + req.body.amount;
+          acc = "amount";
+        } else if (req.body.num === 2) {
+          curramount = result[0].amount2 + req.body.amount;
+          acc = "amount2";
+        } else if (req.body.num === 3) {
+          curramount = result[0].amount3 + req.body.amount;
+          acc = "amount3";
+        } else {
+          res.json({ message: "Deposit did not go through" });
         }
-      );
-    }
-  );
-  res.json({ message: "didn't go through" });
+
+        con.query(
+          `UPDATE users
+            SET ${acc} = ${curramount}
+            WHERE id = ${req.params.id};`,
+          (err, result) => {}
+        );
+
+        res.json(result);
+      }
+    );
+  } else {
+    res.json({ message: "Deposit did not go through" });
+  }
 });
 
 //for inserting users into the database

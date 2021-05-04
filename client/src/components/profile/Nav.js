@@ -4,10 +4,8 @@ function Nav() {
     <nav>
       <ul className="nav-links">
         <Link to="/profile/AccountPage">Account Page</Link>
-
         <Link to="/profile/TransferPage">Transfer Page</Link>
-
-        <Link to="/profile/DepositPage">Deposite Page</Link>
+        <Link to="/profile/DepositPage">Deposit Page</Link>
       </ul>
     </nav>
   );
