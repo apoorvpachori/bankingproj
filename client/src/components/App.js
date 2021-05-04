@@ -58,7 +58,7 @@ class App extends React.Component {
           <Label>
             {this.state.user === ""
               ? `Please Log in`
-              : `Hello ${this.state.user.username}`}
+              : `User Currently Logged in: ${this.state.user.username}`}
           </Label>
         </Router>
       </div>

@@ -94,7 +94,7 @@ class Registration extends React.Component {
               onChange={this.handlePasswordChange}
             />
           </FormGroup>
-          <Button>Register</Button>
+          <input type="submit" value="Register" />
         </Form>
 
         <Label>
