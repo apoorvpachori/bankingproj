@@ -39,7 +39,6 @@ class Registration extends React.Component {
         username: this.state.firstName + " " + this.state.lastName,
         password: this.state.password,
         email: this.state.email,
-        amount: 100,
       })
       .then((res) => {
         console.log(res);
