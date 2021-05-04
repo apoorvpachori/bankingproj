@@ -6,5 +6,4 @@ function DepositPage() {
     </div>
   );
 }
-
 export default DepositPage;

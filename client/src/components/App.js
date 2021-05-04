@@ -9,7 +9,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Label } from "reactstrap";
 
 class App extends React.Component {
-  state = { user: "" };
+  state = { 
+    user: "",
+    
+};
 
   onLogin = async (email, password) => {
     await axios
