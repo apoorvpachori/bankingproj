@@ -17,9 +17,15 @@ class Profile extends React.Component {
           <h2>Display {this.props.user.amount}</h2>
           <Nav />
           <Switch>
-            <Route path="/profile/AccountPage" component={AccountPage} />
-            <Route path="/profile/TransferPage" component={TransferPage} />
-            <Route path="/profile/DepositPage" component={DepositPage} />
+            <Route path="/profile/AccountPage">
+              <AccountPage user={this.props.user} />
+            </Route>
+            <Route path="/profile/TransferPage">
+              <TransferPage user={this.props.user} />
+            </Route>
+            <Route path="/profile/DepositPage">
+              <DepositPage user={this.props.user} />
+            </Route>
           </Switch>
           <Link to="/">Back</Link>
         </div>

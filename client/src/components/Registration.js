@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
 
 import "../css/Registration.css";
