@@ -20,7 +20,7 @@ class Profile extends React.Component {
             <a href="/profile/TransferPage"><button class="button button0">Transfer funds</button></a>
             <br /><br />
             <a href="/profile/DepositPage"><button class="button button0">Deposit checks</button></a>
-            {/*<Nav />
+            <Nav />
             <Switch>
               <Route path="/profile/AccountPage">
                 <AccountPage user={this.props.user} />
@@ -32,7 +32,7 @@ class Profile extends React.Component {
                 <DepositPage user={this.props.user} />
               </Route>
             </Switch>
-            <Link to="/">Back</Link>*/}
+            <Link to="/">Back</Link>
           </div>
         </>
       );
