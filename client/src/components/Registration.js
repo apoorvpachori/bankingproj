@@ -2,8 +2,6 @@ import axios from "axios";
 import React from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
-
-import "../css/Registration.css";
 import "../css/Login.css";
 
 class Registration extends React.Component {

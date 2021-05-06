@@ -1,7 +1,6 @@
 import React from "react";
 import { Form, Label } from "reactstrap";
 import { Link } from "react-router-dom";
-
 import "../css/Login.css";
 
 class Logout extends React.Component {

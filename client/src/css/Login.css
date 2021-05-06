@@ -25,6 +25,18 @@ body {
   height: auto;
 }
 
+.rounded_corners_textbox1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1%;
+  border-radius: 10px;
+  background: rgb(255, 223, 156, 0.8);
+  width: auto;
+  height: auto;
+}
+
 a {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 20px;
@@ -64,11 +76,21 @@ button {
   width: 100%;
 }
 
+.button0:hover {
+  background-color: rgb(253, 131, 56, 0.8);
+  color: white;
+}
+
 .button_top_nav {
   background-color: #5aa3ec;
   border-radius: 10px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 20px;
+}
+
+.button_top_nav:hover {
+  background-color: rgb(255, 223, 156);
+  color: #5aa3ec;
 }
 
 .button_block {
