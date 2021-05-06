@@ -16,7 +16,10 @@ class DepositPage extends React.Component {
     this.setState({ amount: e.target.value });
   };
   numHandler = (e) => {
-    this.setState({ num: e.target.value });
+    console.log(e.target.value);
+    if (e.target.value === "checking") {
+      this.setState({ num: 1 });
+    }
   };
 
   updateBalance = async () => {
@@ -65,7 +68,8 @@ class DepositPage extends React.Component {
 
           <div>
             <label>Choose Account: </label>
-            <select id="accountType" name="account">
+            <select id="accountType" name="account" onChange={this.numHandler}>
+              <option value="null">Please select one...</option>
               <option value="checking">Checking</option>
               <option value="saving">Savings</option>
               <option value="saving">Misc</option>
