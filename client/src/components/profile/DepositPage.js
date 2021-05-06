@@ -38,7 +38,7 @@ class DepositPage extends React.Component {
         amount: this.state.amount,
       })
       .then((res) => {
-        //console.log(res);
+        this.updateBalance();
       });
   };
 

@@ -90,12 +90,7 @@ app.post("/users/:id", (req, res) => {
 
 //for inserting users into the database
 app.post("/users", async (req, res) => {
-  if (
-    req.body.username &&
-    req.body.password &&
-    req.body.email &&
-    req.body.amount
-  ) {
+  if (req.body.username && req.body.password && req.body.email) {
     con.query(
       `INSERT INTO users (username, password, email, amount) VALUES ('${req.body.username}', '${req.body.password}', '${req.body.email}', 0);`,
       (err, result) => {
