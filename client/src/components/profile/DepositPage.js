@@ -5,8 +5,8 @@ import "../../css/Deposit.css";
 class DepositPage extends React.Component {
   state = {
     checkingbalance: 0,
-    savingbalance: 0,
-    miscbalance: 0,
+    savingbalance: null,
+    miscbalance: null,
     amount: 0,
     num: 1,
   };
@@ -41,9 +41,12 @@ class DepositPage extends React.Component {
           this.setState({ checkingbalance: res.data[0].amount });
         }
         if (res.data[0].amount2 !== null) {
+          console.log(res.data[0].amount2);
           this.setState({ savingbalance: res.data[0].amount2 });
         }
         if (res.data[0].amount3 !== null) {
+          console.log(res.data[0].amount2);
+
           this.setState({ miscbalance: res.data[0].amount3 });
         }
       });
