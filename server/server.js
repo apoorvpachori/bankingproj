@@ -32,8 +32,11 @@ app.post("/login", (req, res) => {
       `SELECT * FROM users
             WHERE email='${req.body.email}' AND password ='${req.body.password}';`,
       (err, result) => {
-        console.log(result);
-        res.json(result);
+        if (result.length == 0) {
+          res.json("Couldnt log in");
+        } else {
+          res.json(result);
+        }
       }
     );
   } else {
