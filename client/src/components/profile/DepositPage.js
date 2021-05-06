@@ -38,7 +38,7 @@ class DepositPage extends React.Component {
         amount: this.state.amount,
       })
       .then((res) => {
-        //console.log(res);
+        this.updateBalance();
       });
   };
 
@@ -66,9 +66,9 @@ class DepositPage extends React.Component {
           <div>
             <label>Choose Account: </label>
             <select id="accountType" name="account">
-              <option value="checking">Account 1</option>
-              <option value="saving">Account 2</option>
-              <option value="saving">Account 3</option>
+              <option value="checking">Checking</option>
+              <option value="saving">Savings</option>
+              <option value="saving">Misc</option>
             </select>
           </div>
 
