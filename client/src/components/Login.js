@@ -21,7 +21,7 @@ class Login extends React.Component {
   };
   render() {
     return (
-      <div class="rounded_corners_textbox">
+      <div className="rounded_corners_textbox">
         <p className="header">Welcome back!</p>
         <Form onSubmit={this.onFormSubmit}>
           <FormGroup>
@@ -46,7 +46,7 @@ class Login extends React.Component {
         </Form>
         <br />
         <Link to="/register">
-          <button class="button button0">Register</button>
+          <button className="button button0">Register</button>
         </Link>
         <Link to="/" className="back">
           Back

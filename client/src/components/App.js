@@ -6,7 +6,12 @@ import Profile from "../components/profile/Profile";
 import Home from "./Home";
 import Withdrawl from "./Withdrawl";
 import axios from "axios";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import { Label } from "reactstrap";
 import "../css/Login.css";
 
@@ -22,10 +27,13 @@ class App extends React.Component {
         password: password,
       })
       .then((res) => {
-        console.log(res);
-        this.setState({ user: res.data[0] });
-        console.log(JSON.stringify(res.data[0]));
-        localStorage.setItem("user", JSON.stringify(res.data[0]));
+        if (res.data === "Couldnt log in") {
+          window.alert("Couldn't log in");
+        } else {
+          this.setState({ user: res.data[0] });
+          localStorage.setItem("user", JSON.stringify(res.data[0]));
+          <Redirect to="/" />;
+        }
       });
   };
 
@@ -42,38 +50,33 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <div class="topnav">
-        <a href="/Login"><button class="button button_top_nav">Log in</button></a>
-        </div>
-        <div>
-          <Router>
-            <Switch>
-              <Route path="/" exact>
-                <Home user={this.state.user} />
-              </Route>
-              <Route path="/register" component={Registration} />
-              <Route path="/profile">
-                <Profile user={this.state.user} />
-              </Route>
-              <Route path="/login">
-                <Login onSubmit={this.onLogin} />
-              </Route>
-              <Route path="/logout">
-                <Logout onSubmit={this.onLogout} />
-              </Route>
-              <Route path="/withdrawl">
-                <Withdrawl user={this.state.user} />
-              </Route>
-            </Switch>
-            <Label>
-              {this.state.user === ""
-                ? `Please Log in`
-                : `User Currently Logged in: ${this.state.user.username}`}
-            </Label>
-          </Router>
-        </div>
-      </>
+      <div>
+        <Router>
+          <Switch>
+            <Route path="/" exact>
+              <Home user={this.state.user} />
+            </Route>
+            <Route path="/register" component={Registration} />
+            <Route path="/profile">
+              <Profile user={this.state.user} />
+            </Route>
+            <Route path="/login">
+              <Login onSubmit={this.onLogin} />
+            </Route>
+            <Route path="/logout">
+              <Logout onSubmit={this.onLogout} />
+            </Route>
+            <Route path="/withdrawl">
+              <Withdrawl user={this.state.user} />
+            </Route>
+          </Switch>
+          <Label className="userStatus">
+            {this.state.user === ""
+              ? `Please Log in`
+              : `User Currently Logged in: ${this.state.user.username}`}
+          </Label>
+        </Router>
+      </div>
     );
   }
 }
