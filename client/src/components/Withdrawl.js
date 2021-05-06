@@ -49,9 +49,9 @@ class Withdrawl extends React.Component {
       <div>
         <h1>Current Balance: {this.state.balance}</h1>
         <form className="my-form" onSubmit={this.onWithdrawl}>
-          <label>Please upload the front of the check: </label>
-          <input type="file" required />
-          {/* <img id="myImg" src="#" alt="Image of Check" /> */}
+          // <label>Please upload the front of the check: </label>
+          // <input type="file" required />
+          // {/* <img id="myImg" src="#" alt="Image of Check" /> */}
           <div>
             <label>Amount: </label>
             <input
