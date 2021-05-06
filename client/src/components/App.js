@@ -22,10 +22,12 @@ class App extends React.Component {
         password: password,
       })
       .then((res) => {
-        console.log(res);
-        this.setState({ user: res.data[0] });
-        console.log(JSON.stringify(res.data[0]));
-        localStorage.setItem("user", JSON.stringify(res.data[0]));
+        if (res.data === "Couldnt log in") {
+          window.alert("Couldn't log in");
+        } else {
+          this.setState({ user: res.data[0] });
+          localStorage.setItem("user", JSON.stringify(res.data[0]));
+        }
       });
   };
 
@@ -42,40 +44,33 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <div class="topnav">
-        <a href="/Withdrawl"><button class="button button_top_nav">ATM</button></a>
-        <a href="/Profile"><button class="button button_top_nav">Dashboard</button></a>
-        <a href="/Login"><button class="button button_top_nav">Log in</button></a>
-        </div>
-        <div>
-          <Router>
-            <Switch>
-              <Route path="/" exact>
-                <Home user={this.state.user} />
-              </Route>
-              <Route path="/register" component={Registration} />
-              <Route path="/profile">
-                <Profile user={this.state.user} />
-              </Route>
-              <Route path="/login">
-                <Login onSubmit={this.onLogin} />
-              </Route>
-              <Route path="/logout">
-                <Logout onSubmit={this.onLogout} />
-              </Route>
-              <Route path="/withdrawl">
-                <Withdrawl user={this.state.user} />
-              </Route>
-            </Switch>
-            <Label>
-              {this.state.user === ""
-                ? `Please Log in`
-                : `User Currently Logged in: ${this.state.user.username}`}
-            </Label>
-          </Router>
-        </div>
-      </>
+      <div>
+        <Router>
+          <Switch>
+            <Route path="/" exact>
+              <Home user={this.state.user} />
+            </Route>
+            <Route path="/register" component={Registration} />
+            <Route path="/profile">
+              <Profile user={this.state.user} />
+            </Route>
+            <Route path="/login">
+              <Login onSubmit={this.onLogin} />
+            </Route>
+            <Route path="/logout">
+              <Logout onSubmit={this.onLogout} />
+            </Route>
+            <Route path="/withdrawl">
+              <Withdrawl user={this.state.user} />
+            </Route>
+          </Switch>
+          <Label className="userStatus">
+            {this.state.user === ""
+              ? `Please Log in`
+              : `User Currently Logged in: ${this.state.user.username}`}
+          </Label>
+        </Router>
+      </div>
     );
   }
 }

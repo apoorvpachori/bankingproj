@@ -9,17 +9,18 @@ import "../../css/Profile.css";
 class Profile extends React.Component {
   render() {
     if (this.props.user === "") {
-      return <p>Please log in.</p>;
+      return (
+        <div>
+          <p>Please log in.</p>
+          <br />
+          <Link to="/">Back</Link>
+        </div>
+      );
     } else {
       return (
-        <>
-          <div class="rounded_corners_textbox1">
-            <p className="header">Welcome to your dashboard, <br /> {this.props.user.username}</p>
-            <a href="/profile/AccountPage"><button class="button button0">Manage your accounts</button></a>
-            <br /><br />
-            <a href="/profile/TransferPage"><button class="button button0">Transfer funds</button></a>
-            <br /><br />
-            <a href="/profile/DepositPage"><button class="button button0">Deposit checks</button></a>
+        <div>
+          <h1>Welcome, {this.props.user.username}</h1>
+          <div className="optionsProfile">
             <Nav />
             <Switch>
               <Route path="/profile/AccountPage">
@@ -32,9 +33,9 @@ class Profile extends React.Component {
                 <DepositPage user={this.props.user} />
               </Route>
             </Switch>
-            <Link to="/">Back</Link>
           </div>
-        </>
+          <Link to="/">Back</Link>
+        </div>
       );
     }
   }

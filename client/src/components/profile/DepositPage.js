@@ -4,12 +4,15 @@ import "../../css/Deposit.css";
 
 class DepositPage extends React.Component {
   state = {
-    balance: 0,
+    checkingbalance: 0,
+    savingbalance: null,
+    miscbalance: null,
     amount: 0,
     num: 1,
   };
 
   componentDidMount() {
+    console.log("in component did mount");
     this.updateBalance();
   }
   amountHandler = (e) => {
@@ -17,8 +20,16 @@ class DepositPage extends React.Component {
   };
   numHandler = (e) => {
     console.log(e.target.value);
+
     if (e.target.value === "checking") {
+      console.log("setting num to 1");
       this.setState({ num: 1 });
+    } else if (e.target.value === "savings") {
+      console.log("setting num to 2");
+      this.setState({ num: 2 });
+    } else if (e.target.value === "misc") {
+      console.log("setting num to 3");
+      this.setState({ num: 3 });
     }
   };
 
@@ -26,15 +37,25 @@ class DepositPage extends React.Component {
     await axios
       .get(`http://localhost:7000/users/${this.props.user.id}`)
       .then((res) => {
-        if (res.data[0].amount) {
-          this.setState({ balance: res.data[0].amount });
+        if (res.data[0].amount !== null) {
+          this.setState({ checkingbalance: res.data[0].amount });
+        }
+        if (res.data[0].amount2 !== null) {
+          console.log(res.data[0].amount2);
+          this.setState({ savingbalance: res.data[0].amount2 });
+        }
+        if (res.data[0].amount3 !== null) {
+          console.log(res.data[0].amount2);
+
+          this.setState({ miscbalance: res.data[0].amount3 });
         }
       });
   };
 
   onDeposit = async (e) => {
     e.preventDefault();
-
+    console.log(this.state.num);
+    console.log(this.state.amount);
     await axios
       .post(`http://localhost:7000/users/${this.props.user.id}`, {
         num: this.state.num,
@@ -48,11 +69,12 @@ class DepositPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Current Balance: {this.state.balance}</h1>
+        <h3>Checking Balance: {this.state.checkingbalance}</h3>
+        <h3>Savings Balance: {this.state.savingbalance}</h3>
+        <h3>Misc Balance: {this.state.miscbalance}</h3>
         <form className="my-form" onSubmit={this.onDeposit}>
           <label>Please upload the front of the check: </label>
           <input type="file" required />
-          {/* <img id="myImg" src="#" alt="Image of Check" /> */}
           <div>
             <label>Amount: </label>
             <input
@@ -71,8 +93,8 @@ class DepositPage extends React.Component {
             <select id="accountType" name="account" onChange={this.numHandler}>
               <option value="null">Please select one...</option>
               <option value="checking">Checking</option>
-              <option value="saving">Savings</option>
-              <option value="saving">Misc</option>
+              <option value="savings">Savings</option>
+              <option value="misc">Misc</option>
             </select>
           </div>
 

@@ -50,8 +50,8 @@ class Registration extends React.Component {
   render() {
     return (
       <>
-        <div class="rounded_corners_textbox">
-        <p className="header">Registration</p>
+        <div className="rounded_corners_textbox">
+          <p className="header">Registration</p>
           <Form onSubmit={this.onSubmitHandler}>
             <FormGroup>
               {/*<Label for="firstName">First Name</Label>*/}
