@@ -9,23 +9,31 @@ import "../../css/Profile.css";
 class Profile extends React.Component {
   render() {
     if (this.props.user === "") {
-      return <p>Please log in.</p>;
+      return (
+        <div>
+          <p>Please log in.</p>
+          <br />
+          <Link to="/">Back</Link>
+        </div>
+      );
     } else {
       return (
         <div>
           <h1>Welcome, {this.props.user.username}</h1>
           <Nav />
-          <Switch>
-            <Route path="/profile/AccountPage">
-              <AccountPage user={this.props.user} />
-            </Route>
-            <Route path="/profile/TransferPage">
-              <TransferPage user={this.props.user} />
-            </Route>
-            <Route path="/profile/DepositPage">
-              <DepositPage user={this.props.user} />
-            </Route>
-          </Switch>
+          <div className="optionsProfile">
+            <Switch>
+              <Route path="/profile/AccountPage">
+                <AccountPage user={this.props.user} />
+              </Route>
+              <Route path="/profile/TransferPage">
+                <TransferPage user={this.props.user} />
+              </Route>
+              <Route path="/profile/DepositPage">
+                <DepositPage user={this.props.user} />
+              </Route>
+            </Switch>
+          </div>
           <Link to="/">Back</Link>
         </div>
       );

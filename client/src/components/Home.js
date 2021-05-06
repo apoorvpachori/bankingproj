@@ -5,7 +5,7 @@ import "../css/Login.css";
 class Home extends React.Component {
   render() {
     return (
-      <div class="rounded_corners_textbox">
+      <div className="rounded_corners_textbox">
         <Link to="/login">Log in</Link>
         <br />
         <Link to="/register">Register</Link>
@@ -15,7 +15,7 @@ class Home extends React.Component {
         <Link to="/logout">Log out</Link>
         <br />
         <Link to="/withdrawl">
-          <button class="button button0">ATM</button>
+          <button className="button button0">ATM</button>
         </Link>
       </div>
     );
