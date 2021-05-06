@@ -8,6 +8,7 @@ import Withdrawl from "./Withdrawl";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Label } from "reactstrap";
+import "../css/Login.css";
 
 class App extends React.Component {
   state = {
@@ -41,33 +42,38 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Router>
-          <Switch>
-            <Route path="/" exact>
-              <Home user={this.state.user} />
-            </Route>
-            <Route path="/register" component={Registration} />
-            <Route path="/profile">
-              <Profile user={this.state.user} />
-            </Route>
-            <Route path="/login">
-              <Login onSubmit={this.onLogin} />
-            </Route>
-            <Route path="/logout">
-              <Logout onSubmit={this.onLogout} />
-            </Route>
-            <Route path="/withdrawl">
-              <Withdrawl user={this.state.user} />
-            </Route>
-          </Switch>
-          <Label>
-            {this.state.user === ""
-              ? `Please Log in`
-              : `User Currently Logged in: ${this.state.user.username}`}
-          </Label>
-        </Router>
-      </div>
+      <>
+        <div class="topnav">
+        <a href="/Login"><button class="button button_top_nav">Log in</button></a>
+        </div>
+        <div>
+          <Router>
+            <Switch>
+              <Route path="/" exact>
+                <Home user={this.state.user} />
+              </Route>
+              <Route path="/register" component={Registration} />
+              <Route path="/profile">
+                <Profile user={this.state.user} />
+              </Route>
+              <Route path="/login">
+                <Login onSubmit={this.onLogin} />
+              </Route>
+              <Route path="/logout">
+                <Logout onSubmit={this.onLogout} />
+              </Route>
+              <Route path="/withdrawl">
+                <Withdrawl user={this.state.user} />
+              </Route>
+            </Switch>
+            <Label>
+              {this.state.user === ""
+                ? `Please Log in`
+                : `User Currently Logged in: ${this.state.user.username}`}
+            </Label>
+          </Router>
+        </div>
+      </>
     );
   }
 }
