@@ -19,6 +19,9 @@ class Home extends React.Component {
           <Link to="/logout">
             <li>Logout</li>
           </Link>
+          <Link to="/withdrawl">
+            <li>Withdrawl</li>
+          </Link>
         </ul>
       </div>
     );
