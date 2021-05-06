@@ -25,7 +25,7 @@ class AccountPage extends React.Component {
           this.setState({ acc1available: true });
         } else if (res.data[0].amount2 != null) {
           this.setState({ acc2available: true });
-        } else if (res.data[0].amount2 != null) {
+        } else if (res.data[0].amount3 != null) {
           this.setState({ acc3available: true });
         }
       });
@@ -107,16 +107,16 @@ class AccountPage extends React.Component {
     return (
       <div className="App">
         <h1>Open/Close Account Page</h1>
-        <h2>Availavble acounts to open: </h2>
+        <h2>Available acounts to open: </h2>
           {this.state.acc1available ? "" : this.amount1Checkbox()}
           {this.state.acc2available ? "" : this.amount2Checkbox()}
           {this.state.acc3available ? "" : this.amount3Checkbox()}
           <button>Open Selected Account</button>
         <br/><br/>
-        <h3>If you want to delete an account, check the account and delete:</h3>
-          {this.state.acc1available ? this.amount1Checkbox() : "\n"}
-          {this.state.acc2available ? this.amount2Checkbox() : "\n"}
-          {this.state.acc3available ? this.amount3Checkbox() : "\n"}
+        <h3>If you want to delete an account, check the account and press delete:</h3>
+          {this.state.acc1available ? this.amount1Checkbox() : ""}
+          {this.state.acc2available ? this.amount2Checkbox() : ""}
+          {this.state.acc3available ? this.amount3Checkbox() : ""}
           <button>Delete Account Selected</button>
       </div>
     );
