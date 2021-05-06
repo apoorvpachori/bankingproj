@@ -12,19 +12,11 @@ class AccountPage extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event) {
-    const { name, value, type, checked } = event.tatget;
-    type === "checkbox"
-      ? this.setState({ [name]: checked })
-      : this.setState({ [name]: value });
-    this.setState({
-      amount1: event.tatget,
-    });
   }
 
   componentDidMount() {
     this.updateAcc()
   }
-
   updateAcc = async () => {
     await axios
       .get(`http://localhost:7000/users/${this.props.user.id}`)
@@ -38,7 +30,6 @@ class AccountPage extends React.Component {
         }
       });
   };
-
   displayAcc1 = () =>{
     return (
       <div>
@@ -87,7 +78,6 @@ class AccountPage extends React.Component {
       </div>
     );
   };
-
   amount2Checkbox = () => {
     return (
       <div>
@@ -100,7 +90,6 @@ class AccountPage extends React.Component {
       </div>
     );
   };
-
   amount3Checkbox = () => {
     return (
       <div>
@@ -117,18 +106,13 @@ class AccountPage extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* purpose of this page is to open / close accounts 
-      Write section of api that will create account for a user
-      create section of api that will close account for a user */}
         <h1>Open/Close Account Page</h1>
-        {/* check if there are any avilable accounts to open
-          if theres any available accounts display them... */}
         <h2>Availavble acounts to open: </h2>
           {this.state.acc1available ? "" : this.amount1Checkbox()}
           {this.state.acc2available ? "" : this.amount2Checkbox()}
           {this.state.acc3available ? "" : this.amount3Checkbox()}
           <button>Open Selected Account</button>
-        <br /><br />
+        <br/><br/>
         <h3>If you want to delete an account, check the account and delete:</h3>
           {this.state.acc1available ? this.amount1Checkbox() : "\n"}
           {this.state.acc2available ? this.amount2Checkbox() : "\n"}
