@@ -1,51 +1,48 @@
 import React from "react";
-import { Form, FormGroup, Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-
-class Withdrawl extends React.Component{
+class Withdrawl extends React.Component {
   state = {
     balance: 0,
     amount: 0,
     num: 1,
   };
 
-componentDidMount() {
-  this.updateBalance();
-}
+  componentDidMount() {
+    this.updateBalance();
+  }
 
-amountHandler = (e) => {
-  this.setState({ amount: e.target.value });
-};
+  amountHandler = (e) => {
+    this.setState({ amount: e.target.value });
+  };
 
-numHandler = (e) => {
-  this.setState({ num: e.target.value });
-};
+  numHandler = (e) => {
+    this.setState({ num: e.target.value });
+  };
 
+  updateBalance = async () => {
+    await axios
+      .get(`http://localhost:7000/users/${this.props.user.id}`)
+      .then((res) => {
+        if (res.data[0].amount) {
+          this.setState({ balance: res.data[0].amount });
+        }
+      });
+  };
 
-updateBalance = async () => {
-  await axios
-    .get(`http://localhost:7000/users/${this.props.user.id}`)
-    .then((res) => {
-      if (res.data[0].amount) {
-        this.setState({ balance: res.data[0].amount });
-      }
-    });
-};
+  onWithdrawl = async (e) => {
+    e.preventDefault();
 
-onWithdrawl = async (e) => {
-  e.preventDefault();
-
-  await axios
-    .post(`http://localhost:7000/users/${this.props.user.id}`, {
-      num: this.state.num,
-      amount: this.state.amount * -1,
-    })
-    .then((res) => {
-      //console.log(res);
-    });
-};
+    await axios
+      .post(`http://localhost:7000/users/${this.props.user.id}`, {
+        num: this.state.num,
+        amount: this.state.amount * -1,
+      })
+      .then((res) => {
+        //console.log(res);
+      });
+  };
 
   render() {
     return (
@@ -71,9 +68,9 @@ onWithdrawl = async (e) => {
           <div>
             <label>Choose Account: </label>
             <select id="accountType" name="account">
-              <option value="checking">Account 1</option>
-              <option value="saving">Account 2</option>
-              <option value="saving">Account 3</option>
+              <option value="checking">Checking</option>
+              <option value="saving">Savings</option>
+              <option value="saving">Misc</option>
             </select>
           </div>
 
@@ -83,8 +80,9 @@ onWithdrawl = async (e) => {
           </div>
           <input type="submit" value="Submit" />
         </form>
+        <Link to="/">Back</Link>
       </div>
     );
-  };
+  }
 }
 export default Withdrawl;

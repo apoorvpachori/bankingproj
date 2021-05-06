@@ -4,15 +4,15 @@ import Login from "./Login";
 import Logout from "./Logout";
 import Profile from "../components/profile/Profile";
 import Home from "./Home";
+import Withdrawl from "./Withdrawl";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Label } from "reactstrap";
 
 class App extends React.Component {
-  state = { 
+  state = {
     user: "",
-    
-};
+  };
 
   onLogin = async (email, password) => {
     await axios
@@ -56,6 +56,9 @@ class App extends React.Component {
             </Route>
             <Route path="/logout">
               <Logout onSubmit={this.onLogout} />
+            </Route>
+            <Route path="/withdrawl">
+              <Withdrawl user={this.state.user} />
             </Route>
           </Switch>
           <Label>
