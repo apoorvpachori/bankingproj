@@ -67,5 +67,4 @@ class DepositPage extends React.Component {
     );
   }
 }
-
 export default DepositPage;

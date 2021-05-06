@@ -14,6 +14,10 @@ class Profile extends React.Component {
       return (
         <div>
           <h1>Welcome, {this.props.user.username}</h1>
+<<<<<<< HEAD
+=======
+          <h2>Account Balance: ${this.props.user.amount}</h2>
+>>>>>>> 36b56c46e5f315a633b4a918a2aa58f838f8141b
           <Nav />
           <Switch>
             <Route path="/profile/AccountPage">
