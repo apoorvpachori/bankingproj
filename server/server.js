@@ -60,18 +60,19 @@ app.post("/users/:id", (req, res) => {
         WHERE id='${req.params.id}';`,
       (err, result) => {
         if (req.body.num === 1) {
-          curramount = result[0].amount + req.body.amount;
+          curramount = parseInt(result[0].amount) + parseInt(req.body.amount);
           acc = "amount";
         } else if (req.body.num === 2) {
-          curramount = result[0].amount2 + req.body.amount;
+          curramount = parseInt(result[0].amount2) + parseInt(req.body.amount2);
           acc = "amount2";
         } else if (req.body.num === 3) {
-          curramount = result[0].amount3 + req.body.amount;
+          curramount = parseInt(result[0].amount3) + parseInt(req.body.amount3);
           acc = "amount3";
         } else {
           res.json({ message: "Deposit did not go through" });
         }
-
+        console.log(curramount);
+        console.log(typeof curramount);
         con.query(
           `UPDATE users
             SET ${acc} = ${curramount}

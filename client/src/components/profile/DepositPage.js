@@ -4,16 +4,31 @@ import "../../css/Deposit.css";
 
 class DepositPage extends React.Component {
   state = {
+    balance: 0,
     amount: 0,
     num: 1,
   };
 
+  componentDidMount() {
+    this.updateBalance();
+  }
   amountHandler = (e) => {
     this.setState({ amount: e.target.value });
   };
   numHandler = (e) => {
     this.setState({ num: e.target.value });
   };
+
+  updateBalance = async () => {
+    await axios
+      .get(`http://localhost:7000/users/${this.props.user.id}`)
+      .then((res) => {
+        if (res.data[0].amount) {
+          this.setState({ balance: res.data[0].amount });
+        }
+      });
+  };
+
   onDeposit = async (e) => {
     e.preventDefault();
 
@@ -23,14 +38,14 @@ class DepositPage extends React.Component {
         amount: this.state.amount,
       })
       .then((res) => {
-        console.log(res);
+        //console.log(res);
       });
   };
 
   render() {
     return (
       <div>
-        <h1>Current Balance: {this.props.user.amount}</h1>
+        <h1>Current Balance: {this.state.balance}</h1>
         <form className="my-form" onSubmit={this.onDeposit}>
           <label>Please upload the front of the check: </label>
           <input type="file" required />
