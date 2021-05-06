@@ -6,8 +6,8 @@ class Withdrawl extends React.Component {
   state = {
     withdrew: false,
     checkingbalance: 0,
-    savingbalance: 0,
-    miscbalance: 0,
+    savingbalance: null,
+    miscbalance: null,
     amount: 0,
     num: 1,
   };

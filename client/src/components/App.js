@@ -14,7 +14,6 @@ class App extends React.Component {
   state = {
     user: "",
   };
-  ß;
 
   onLogin = async (email, password) => {
     await axios

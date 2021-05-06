@@ -75,7 +75,6 @@ class DepositPage extends React.Component {
         <form className="my-form" onSubmit={this.onDeposit}>
           <label>Please upload the front of the check: </label>
           <input type="file" required />
-          {/* <img id="myImg" src="#" alt="Image of Check" /> */}
           <div>
             <label>Amount: </label>
             <input
