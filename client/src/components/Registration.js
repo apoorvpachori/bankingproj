@@ -4,6 +4,7 @@ import { Form, FormGroup, Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
 
 import "../css/Registration.css";
+import "../css/Login.css";
 
 class Registration extends React.Component {
   state = {
@@ -50,58 +51,60 @@ class Registration extends React.Component {
   };
   render() {
     return (
-      <div className="form-container">
-        <Label className="header">Registration</Label>
-        <Form onSubmit={this.onSubmitHandler}>
-          <FormGroup>
-            <Label for="firstName">First Name</Label>
-            <Input
-              type="firstname"
-              name="firstname"
-              id="firstname"
-              placeholder="First Name"
-              onChange={this.handleFirstNameChange}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleEmail">Last Name</Label>
-            <Input
-              type="lastname"
-              name="lastname"
-              id="lastname"
-              placeholder="Last Name"
-              onChange={this.handleLastNameChange}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleEmail">Email</Label>
-            <Input
-              type="email"
-              name="email"
-              id="exampleEmail"
-              placeholder="Email"
-              onChange={this.handleEmailChange}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="examplePassword">Password</Label>
-            <Input
-              type="password"
-              name="password"
-              id="examplePassword"
-              placeholder="Password"
-              onChange={this.handlePasswordChange}
-            />
-          </FormGroup>
-          <input type="submit" value="Register" />
-        </Form>
+      <>
+        <div class="rounded_corners_textbox">
+        <p className="header">Registration</p>
+          <Form onSubmit={this.onSubmitHandler}>
+            <FormGroup>
+              {/*<Label for="firstName">First Name</Label>*/}
+              <Input
+                type="firstname"
+                name="firstname"
+                id="firstname"
+                placeholder="First Name"
+                onChange={this.handleFirstNameChange}
+              />
+            </FormGroup>
+            <FormGroup>
+              {/*<Label for="exampleEmail">Last Name</Label>*/}
+              <Input
+                type="lastname"
+                name="lastname"
+                id="lastname"
+                placeholder="Last Name"
+                onChange={this.handleLastNameChange}
+              />
+            </FormGroup>
+            <FormGroup>
+              {/*<Label for="exampleEmail">Email</Label>*/}
+              <Input
+                type="email"
+                name="email"
+                id="exampleEmail"
+                placeholder="Email"
+                onChange={this.handleEmailChange}
+              />
+            </FormGroup>
+            <FormGroup>
+              {/*<Label for="examplePassword">Password</Label>*/}
+              <Input
+                type="password"
+                name="password"
+                id="examplePassword"
+                placeholder="Password"
+                onChange={this.handlePasswordChange}
+              />
+            </FormGroup>
+            <input type="submit" value="Register" />
+          </Form>
 
-        <Label>
-          {this.state.status ? "Registered" : " Not Yet Registered"}
-        </Label>
-        <br />
-        <Link to="/">Back</Link>
-      </div>
+          <Label>
+            {this.state.status ? "Registered" : " Not Yet Registered"}
+          </Label>
+          <br />
+          <Link to="/">Back</Link>
+        </div>
+      </>
     );
   }
 }

@@ -1,9 +1,7 @@
 import React from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
-
 import "../css/Login.css";
-
 class Login extends React.Component {
   state = {
     email: "",
@@ -23,40 +21,44 @@ class Login extends React.Component {
   };
   render() {
     return (
-      <div className="form-container">
-        <Label className="header">Login</Label>
-        <Form onSubmit={this.onFormSubmit}>
-          <FormGroup>
-            <Label for="email">Email</Label>
-            <Input
-              type="email"
-              name="email"
-              id="exampleEmail"
-              placeholder="Email"
-              onChange={this.handleEmailChange}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="password">Password</Label>
-            <Input
-              type="password"
-              name="password"
-              id="examplePassword"
-              placeholder="Password"
-              onChange={this.handlePasswordChange}
-            />
-          </FormGroup>
-          <input type="submit" value="Submit" />
-        </Form>
-
-        <Label>
-          {this.state.user === null ? "User not logged in" : "User Logged in"}
-        </Label>
-        <br />
-        <Link to="/">Back</Link>
-      </div>
+      <>
+        <div class="rounded_corners_textbox">
+            <p className="header">Welcome back!</p>
+            <Form onSubmit={this.onFormSubmit}>
+              <FormGroup>
+                {/*<Label for="email">Email</Label>*/}
+                <Input
+                  type="email"
+                  name="email"
+                  id="exampleEmail"
+                  placeholder="Email"
+                  onChange={this.handleEmailChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                {/*<Label for="password">Password</Label>*/}
+                <Input
+                  type="password"
+                  name="password"
+                  id="examplePassword"
+                  placeholder="Password"
+                  onChange={this.handlePasswordChange}
+                />
+              </FormGroup>
+              <input type="submit" value="Sign in"/>
+            </Form>
+            {/*<Label>
+              {this.state.user === null ? "User not logged in" : "User Logged in"}
+            </Label>
+            <br />
+            <Link to="/">Back</Link>*/}
+          <br />
+          <a href="/register"><button class="button button0">Register</button></a>
+        </div>
+      </>
     );
   }
 }
+
 
 export default Login;
