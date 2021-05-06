@@ -11,11 +11,10 @@ class AccountPage extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(event) {
-  }
+  handleChange(event) {}
 
   componentDidMount() {
-    this.updateAcc()
+    this.updateAcc();
   }
   updateAcc = async () => {
     await axios
@@ -30,7 +29,7 @@ class AccountPage extends React.Component {
         }
       });
   };
-  displayAcc1 = () =>{
+  displayAcc1 = () => {
     return (
       <div>
         <input
@@ -38,11 +37,12 @@ class AccountPage extends React.Component {
           name="amount1"
           checked={this.state.isChecked}
           onChange={this.handleChange}
-        /> Account 1
+        />{" "}
+        Account 1
       </div>
     );
-  }
-  displayAcc2 = () =>{
+  };
+  displayAcc2 = () => {
     return (
       <div>
         <input
@@ -50,11 +50,12 @@ class AccountPage extends React.Component {
           name="amount2"
           checked={this.state.isChecked}
           onChange={this.handleChange}
-        /> Account 2
+        />{" "}
+        Account 2
       </div>
     );
-  }
-  displayAcc3 = () =>{
+  };
+  displayAcc3 = () => {
     return (
       <div>
         <input
@@ -62,10 +63,11 @@ class AccountPage extends React.Component {
           name="amount3"
           checked={this.state.isChecked}
           onChange={this.handleChange}
-        /> Account 3
+        />{" "}
+        Account 3
       </div>
     );
-  }
+  };
   amount1Checkbox = () => {
     return (
       <div>
@@ -74,7 +76,8 @@ class AccountPage extends React.Component {
           name="amount1"
           checked={this.state.isChecked}
           onChange={this.handleChange}
-        /> Account 1
+        />{" "}
+        Account 1
       </div>
     );
   };
@@ -86,7 +89,8 @@ class AccountPage extends React.Component {
           name="amount2"
           checked={this.state.isChecked}
           onChange={this.handleChange}
-        /> Account 2
+        />{" "}
+        Account 2
       </div>
     );
   };
@@ -98,26 +102,35 @@ class AccountPage extends React.Component {
           name="amount3"
           checked={this.state.isChecked}
           onChange={this.handleChange}
-        /> Account 3
+        />{" "}
+        Account 3
       </div>
     );
   };
 
+  onAccount = (e) => {
+    e.preventDefault();
+  };
   render() {
     return (
       <div className="App">
-        <h1>Open/Close Account Page</h1>
-        <h2>Availavble acounts to open: </h2>
+        <form onSubmit={this.onAccount}>
+          <h1>Open/Close Account Page</h1>
+          <h2>Availavble acounts to open: </h2>
           {this.state.acc1available ? "" : this.amount1Checkbox()}
           {this.state.acc2available ? "" : this.amount2Checkbox()}
           {this.state.acc3available ? "" : this.amount3Checkbox()}
-          <button>Open Selected Account</button>
-        <br/><br/>
-        <h3>If you want to delete an account, check the account and delete:</h3>
+          <br />
+          <br />
+          <h3>
+            If you want to delete an account, check the account and delete:
+          </h3>
           {this.state.acc1available ? this.amount1Checkbox() : "\n"}
           {this.state.acc2available ? this.amount2Checkbox() : "\n"}
           {this.state.acc3available ? this.amount3Checkbox() : "\n"}
-          <button>Delete Account Selected</button>
+
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     );
   }
