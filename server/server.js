@@ -46,17 +46,17 @@ app.post("/login", (req, res) => {
 
 //for updating user balance
 app.post("/users/:id", (req, res) => {
-  console.log(req.params.id);
-  console.log(req.body.num);
-  console.log(req.body.amount);
+  // console.log(req.params.id);
+  // console.log(req.body.num);
+  // console.log(req.body.amount);
 
   if (req.params.id && req.body.num && req.body.amount) {
     let curramount = 0;
     acc = "";
 
-    console.log(`id is ${req.params.id} `);
-    console.log(`num acc is ${req.body.num} `);
-    console.log(`amount is ${req.body.amount}`);
+    // console.log(`id is ${req.params.id} `);
+    // console.log(`num acc is ${req.body.num} `);
+    // console.log(`amount is ${req.body.amount}`);
 
     con.query(
       `SELECT * FROM users
@@ -66,16 +66,15 @@ app.post("/users/:id", (req, res) => {
           curramount = parseInt(result[0].amount) + parseInt(req.body.amount);
           acc = "amount";
         } else if (req.body.num === 2) {
-          curramount = parseInt(result[0].amount2) + parseInt(req.body.amount2);
+          curramount = parseInt(result[0].amount2) + parseInt(req.body.amount);
           acc = "amount2";
         } else if (req.body.num === 3) {
-          curramount = parseInt(result[0].amount3) + parseInt(req.body.amount3);
+          curramount = parseInt(result[0].amount3) + parseInt(req.body.amount);
           acc = "amount3";
         } else {
           res.json({ message: "Deposit did not go through" });
         }
-        console.log(curramount);
-        console.log(typeof curramount);
+
         con.query(
           `UPDATE users
             SET ${acc} = ${curramount}

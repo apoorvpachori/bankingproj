@@ -6,12 +6,7 @@ import Profile from "../components/profile/Profile";
 import Home from "./Home";
 import Withdrawl from "./Withdrawl";
 import axios from "axios";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Label } from "reactstrap";
 import "../css/Login.css";
 
@@ -19,6 +14,7 @@ class App extends React.Component {
   state = {
     user: "",
   };
+  ß;
 
   onLogin = async (email, password) => {
     await axios
@@ -32,7 +28,6 @@ class App extends React.Component {
         } else {
           this.setState({ user: res.data[0] });
           localStorage.setItem("user", JSON.stringify(res.data[0]));
-          <Redirect to="/" />;
         }
       });
   };
