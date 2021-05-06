@@ -10,7 +10,7 @@ function TransferPage() {
         <option value="saving">Account 2</option>
         <option value="saving">Account 3</option>
         </select>
-      <br />
+      <br/><br/>
       <h2>Select the account you want to transfer to: </h2>
         <label>Choose Account: </label>
         <select id="accountType" name="account">
@@ -18,7 +18,7 @@ function TransferPage() {
         <option value="saving">Account 2</option>
         <option value="saving">Account 3</option>
         </select>
-      <br />
+      <br/><br/>
       <h2>Enter the amount you want to transfer: </h2>
       <input type="text " />
       <button>Submit</button>
