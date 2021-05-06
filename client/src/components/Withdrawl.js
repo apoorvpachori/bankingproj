@@ -10,7 +10,11 @@ class Withdrawl extends React.Component {
   };
 
   componentDidMount() {
-    this.updateBalance();
+    if (this.props.user === "") {
+      return <p>Please log in.</p>;
+    } else {
+      this.updateBalance();
+    }
   }
 
   amountHandler = (e) => {
@@ -45,41 +49,45 @@ class Withdrawl extends React.Component {
   };
 
   render() {
-    return (
-      <div>
-        <h1>Current Balance: {this.state.balance}</h1>
-        <form className="my-form" onSubmit={this.onWithdrawl}>
-          <div>
-            <label>Amount: </label>
-            <input
-              type="number"
-              name="amount"
-              id="currency-field"
-              min="0"
-              placeholder="0000.00"
-              required
-              onChange={this.amountHandler}
-            />
-          </div>
+    if (this.props.user === "") {
+      return <p>Please log in.</p>;
+    } else {
+      return (
+        <div>
+          <h1>Current Balance: {this.state.balance}</h1>
+          <form className="my-form" onSubmit={this.onWithdrawl}>
+            <div>
+              <label>Amount: </label>
+              <input
+                type="number"
+                name="amount"
+                id="currency-field"
+                min="0"
+                placeholder="0000.00"
+                required
+                onChange={this.amountHandler}
+              />
+            </div>
 
-          <div>
-            <label>Choose Account: </label>
-            <select id="accountType" name="account">
-              <option value="checking">Checking</option>
-              <option value="saving">Savings</option>
-              <option value="saving">Misc</option>
-            </select>
-          </div>
+            <div>
+              <label>Choose Account: </label>
+              <select id="accountType" name="account">
+                <option value="checking">Checking</option>
+                <option value="saving">Savings</option>
+                <option value="saving">Misc</option>
+              </select>
+            </div>
 
-          <div>
-            <label>Date of Withdrawl: </label>
-            <input type="date" name="date" required />
-          </div>
-          <input type="submit" value="Submit" />
-        </form>
-        <Link to="/">Back</Link>
-      </div>
-    );
+            <div>
+              <label>Date of Withdrawl: </label>
+              <input type="date" name="date" required />
+            </div>
+            <input type="submit" value="Submit" />
+          </form>
+          <Link to="/">Back</Link>
+        </div>
+      );
+    }
   }
 }
 export default Withdrawl;

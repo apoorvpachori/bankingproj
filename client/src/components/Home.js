@@ -6,15 +6,17 @@ class Home extends React.Component {
   render() {
     return (
       <div class="rounded_corners_textbox">
-        <a href="/login">Log in</a>
+        <Link to="/login">Log in</Link>
         <br />
-        <a href="/register">Register</a>
+        <Link to="/register">Register</Link>
         <br />
-        <a href="/profile">Profile</a>
+        <Link to="/profile">Profile</Link>
         <br />
-        <a href="/logout">Log out</a>
+        <Link to="/logout">Log out</Link>
         <br />
-        <a href="/withdrawl"><button class="button button0">ATM</button></a>
+        <Link to="/withdrawl">
+          <button class="button button0">ATM</button>
+        </Link>
       </div>
     );
   }
