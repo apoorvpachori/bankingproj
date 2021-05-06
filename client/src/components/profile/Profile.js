@@ -12,22 +12,29 @@ class Profile extends React.Component {
       return <p>Please log in.</p>;
     } else {
       return (
-        <div>
-          <h1>Welcome, {this.props.user.username}</h1>
-          <Nav />
-          <Switch>
-            <Route path="/profile/AccountPage">
-              <AccountPage user={this.props.user} />
-            </Route>
-            <Route path="/profile/TransferPage">
-              <TransferPage user={this.props.user} />
-            </Route>
-            <Route path="/profile/DepositPage">
-              <DepositPage user={this.props.user} />
-            </Route>
-          </Switch>
-          <Link to="/">Back</Link>
-        </div>
+        <>
+          <div class="rounded_corners_textbox1">
+            <p className="header">Welcome to your dashboard, <br /> {this.props.user.username}</p>
+            <a href="/profile/AccountPage"><button class="button button0">Manage your accounts</button></a>
+            <br /><br />
+            <a href="/profile/TransferPage"><button class="button button0">Transfer funds</button></a>
+            <br /><br />
+            <a href="/profile/DepositPage"><button class="button button0">Deposit checks</button></a>
+            {/*<Nav />
+            <Switch>
+              <Route path="/profile/AccountPage">
+                <AccountPage user={this.props.user} />
+              </Route>
+              <Route path="/profile/TransferPage">
+                <TransferPage user={this.props.user} />
+              </Route>
+              <Route path="/profile/DepositPage">
+                <DepositPage user={this.props.user} />
+              </Route>
+            </Switch>
+            <Link to="/">Back</Link>*/}
+          </div>
+        </>
       );
     }
   }

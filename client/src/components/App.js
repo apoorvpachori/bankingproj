@@ -44,6 +44,8 @@ class App extends React.Component {
     return (
       <>
         <div class="topnav">
+        <a href="/Withdrawl"><button class="button button_top_nav">ATM</button></a>
+        <a href="/Profile"><button class="button button_top_nav">Dashboard</button></a>
         <a href="/Login"><button class="button button_top_nav">Log in</button></a>
         </div>
         <div>
