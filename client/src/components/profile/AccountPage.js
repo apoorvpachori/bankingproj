@@ -84,7 +84,7 @@ class AccountPage extends React.Component {
       <div className="App">
         <form onSubmit={this.onAccount}>
           <h1>Open/Close Account Page</h1>
-          <h2>Available acounts to open: </h2>
+          <h2>Select the acounts to open: </h2>
           {/* {this.state.acc1available ? "" : this.amount1Checkbox()}
           {this.state.acc2available ? "" : this.amount2Checkbox()}
           {this.state.acc3available ? "" : this.amount3Checkbox()} */}
@@ -101,7 +101,7 @@ class AccountPage extends React.Component {
           <br />
           <br />
           <h3>
-            If you want to delete an account, check the account and delete:
+            Select the account to delete:
           </h3>
           {/* {this.state.acc1available ? this.amount1Checkbox() : "\n"}
           {this.state.acc2available ? this.amount2Checkbox() : "\n"}

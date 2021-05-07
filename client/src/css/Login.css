@@ -9,7 +9,7 @@
 }
 
 body {
-  background-image: url("sjsu_background_edited.jpg");
+  background: url("sjsu_background_edited.jpg") no-repeat fixed;
   background-size: cover;
 }
 
