@@ -1,6 +1,6 @@
 .optionsProfile {
   border-radius: 25px;
-  background: #73ad21;
+  background: #b8b7b791;
   padding: 20px;
 }
 
@@ -19,14 +19,13 @@ nav {
   display: block;
   width: 100%;
   padding: 65px 50px;
-  background: rgb(6, 64, 136);
+  background: rgb(6, 69, 146);
   color: rgb(255, 255, 255);
-
   margin-left: 25%;
 }
 
 .btn:hover {
-  background: #444;
+  background: rgb(170, 170, 170);
 }
 
 h1 {
@@ -48,7 +47,7 @@ nav {
 }
 
 .nav-links {
-  width: 70%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;

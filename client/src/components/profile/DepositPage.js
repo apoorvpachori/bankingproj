@@ -69,9 +69,9 @@ class DepositPage extends React.Component {
   render() {
     return (
       <div>
-        <h3>Checking Balance: {this.state.checkingbalance}</h3>
-        <h3>Savings Balance: {this.state.savingbalance}</h3>
-        <h3>Misc Balance: {this.state.miscbalance}</h3>
+        <h3>Checking Balance: {this.state.checkingbalance ? `$${this.state.checkingbalance}`:""}</h3>
+        <h3>Savings Balance: {this.state.savingbalance ? `$${this.state.savingbalance}`:""}</h3>
+        <h3>Misc Balance: {this.state.miscbalance ? `$${this.state.miscbalance}`:""}</h3>
         <form className="my-form" onSubmit={this.onDeposit}>
           <label>Please upload the front of the check: </label>
           <input type="file" required />
