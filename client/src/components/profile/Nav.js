@@ -8,7 +8,7 @@ function Nav() {
           <button className="btn">Account Page</button>
         </Link>
         <Link to="/profile/TransferPage" style={{ color: "black" }}>
-          <button className="btn">Account Page</button>
+          <button className="btn">Transfer Page</button>
         </Link>
         <Link to="/profile/DepositPage" style={{ color: "black" }}>
           <button className="btn">Deposit Page</button>

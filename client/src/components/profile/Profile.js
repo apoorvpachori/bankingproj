@@ -19,8 +19,9 @@ class Profile extends React.Component {
     } else {
       return (
         <div>
-          <h1>Welcome, {this.props.user.username}</h1>
+          
           <div className="optionsProfile">
+          <h1>Welcome, {this.props.user.username}</h1>
             <Nav />
             <Switch>
               <Route path="/profile/AccountPage">
