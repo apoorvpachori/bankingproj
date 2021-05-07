@@ -5,13 +5,13 @@ function Nav() {
     <nav>
       <ul className="nav-links">
         <Link to="/profile/AccountPage" style={{ color: "black" }}>
-          <p></p>Account Page
+          <button className = "btn">Account Page</button>
         </Link>
         <Link to="/profile/TransferPage" style={{ color: "black" }}>
-          Transfer Page
+          <button className = "btn">Account Page</button>
         </Link>
         <Link to="/profile/DepositPage" style={{ color: "black" }}>
-          Deposit Page
+          <button className = "btn">Deposit Page</button>
         </Link>
       </ul>
     </nav>
