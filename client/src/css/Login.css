@@ -8,11 +8,6 @@
   margin: 0;
 }
 
-body {
-  background: url("sjsu_background_edited.jpg") no-repeat fixed;
-  background-size: cover;
-}
-
 .rounded_corners_textbox {
   position: absolute;
   top: 50%;

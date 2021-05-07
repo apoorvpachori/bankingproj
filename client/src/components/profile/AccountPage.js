@@ -100,9 +100,7 @@ class AccountPage extends React.Component {
           </select>
           <br />
           <br />
-          <h3>
-            Select the account to delete:
-          </h3>
+          <h3>Select the account to delete:</h3>
           {/* {this.state.acc1available ? this.amount1Checkbox() : "\n"}
           {this.state.acc2available ? this.amount2Checkbox() : "\n"}
           {this.state.acc3available ? this.amount3Checkbox() : "\n"} */}

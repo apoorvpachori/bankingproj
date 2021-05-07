@@ -5,10 +5,11 @@ import Logout from "./Logout";
 import Profile from "../components/profile/Profile";
 import Home from "./Home";
 import Withdrawl from "./Withdrawl";
+import Navbar from "./Navbar";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Label } from "reactstrap";
-import "../css/Login.css";
+import "../css/App.css";
 
 class App extends React.Component {
   state = {
@@ -29,6 +30,7 @@ class App extends React.Component {
           localStorage.setItem("user", JSON.stringify(res.data[0]));
         }
       });
+    window.location.href = "/";
   };
 
   onLogout = () => {
@@ -46,10 +48,12 @@ class App extends React.Component {
     return (
       <div>
         <Router>
+          <Navbar />
           <Switch>
             <Route path="/" exact>
               <Home user={this.state.user} />
             </Route>
+
             <Route path="/register" component={Registration} />
             <Route path="/profile">
               <Profile user={this.state.user} />
