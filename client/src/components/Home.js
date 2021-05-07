@@ -4,7 +4,7 @@ import "../css/Home.css";
 class Home extends React.Component {
   render() {
     return (
-      <div className="rounded_corners_textbox">
+      <div>
         <p>Time to add to the home page</p>
       </div>
     );

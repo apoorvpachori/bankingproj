@@ -53,7 +53,6 @@ class App extends React.Component {
             <Route path="/" exact>
               <Home user={this.state.user} />
             </Route>
-
             <Route path="/register" component={Registration} />
             <Route path="/profile">
               <Profile user={this.state.user} />
