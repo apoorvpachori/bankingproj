@@ -4,13 +4,13 @@ function Nav() {
   return (
     <nav>
       <ul className="nav-links">
-        <Link to="/profile/AccountPage" className="link">
+        <Link to="/profile/AccountPage" style={{ color: "black" }}>
           <p></p>Account Page
         </Link>
-        <Link to="/profile/TransferPage" className="link">
+        <Link to="/profile/TransferPage" style={{ color: "black" }}>
           Transfer Page
         </Link>
-        <Link to="/profile/DepositPage" className="link">
+        <Link to="/profile/DepositPage" style={{ color: "black" }}>
           Deposit Page
         </Link>
       </ul>

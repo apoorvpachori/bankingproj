@@ -44,6 +44,68 @@ app.post("/login", (req, res) => {
   }
 });
 
+//for closing accounts
+app.post("/open/:id", (req, res) => {
+  console.log(req.params.id);
+  console.log(req.body.num);
+
+  con.query(
+    `SELECT * FROM users
+  WHERE id='${req.params.id}';`,
+    (err, result) => {
+      let acc = "";
+      if (req.body.num === 1) {
+        acc = "amount";
+      } else if (req.body.num === 2) {
+        acc = "amount2";
+      } else if (req.body.num === 3) {
+        acc = "amount3";
+      } else {
+        res.json({ message: "open did not go through" });
+      }
+      console.log(acc);
+      con.query(
+        `UPDATE users
+          SET ${acc} = 0
+          WHERE id = ${req.params.id};`,
+        (err, result) => {}
+      );
+      res.json({ message: "open Successful" });
+    }
+  );
+});
+
+//for closing accounts
+app.post("/close/:id", (req, res) => {
+  console.log(req.params.id);
+  console.log(req.body.num);
+
+  con.query(
+    `SELECT * FROM users
+  WHERE id='${req.params.id}';`,
+    (err, result) => {
+      let acc = "";
+      if (req.body.num === 1) {
+        acc = "amount";
+      } else if (req.body.num === 2) {
+        acc = "amount2";
+      } else if (req.body.num === 3) {
+        acc = "amount3";
+      } else {
+        res.json({ message: "Close did not go through" });
+      }
+      console.log(acc);
+      con.query(
+        `UPDATE users
+          SET ${acc} = null
+          WHERE id = ${req.params.id};`,
+        (err, result) => {}
+      );
+      res.json({ message: "Close Successful" });
+    }
+  );
+});
+
 //for updating user balance
 app.post("/users/:id", (req, res) => {
   // console.log(req.params.id);
