@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+
 class TransferPage extends React.Component {
   state = {
     transferred: false,
@@ -119,9 +120,11 @@ class TransferPage extends React.Component {
     return (
       <div>
         <h1>Transfer Page</h1>
-        <h3>Checking Balance: {this.state.checkingbalance ? `$${this.state.checkingbalance}`:""}</h3>
-        <h3>Savings Balance: {this.state.savingbalance ? `$${this.state.savingbalance}`:""}</h3>
-        <h3>Misc Balance: {this.state.miscbalance ? `$${this.state.miscbalance}`:""}</h3>
+        <hr/>
+        <h4>Checking Balance: {this.state.checkingbalance ? `$${this.state.checkingbalance}`:""}</h4>
+        <h4>Savings Balance: {this.state.savingbalance ? `$${this.state.savingbalance}`:""}</h4>
+        <h4>Misc Balance: {this.state.miscbalance ? `$${this.state.miscbalance}`:""}</h4>
+        <br/>
         <form onSubmit={this.onTransfer}>
           <h2>Select the account you want to transfer from: </h2>
           <label>Choose Account: </label>

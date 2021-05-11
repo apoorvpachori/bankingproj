@@ -84,6 +84,7 @@ class AccountPage extends React.Component {
       <div className="App">
         <form onSubmit={this.onAccount}>
           <h1>Open/Close Account Page</h1>
+          <hr/>
           <h2>Select the acounts to open: </h2>
           {/* {this.state.acc1available ? "" : this.amount1Checkbox()}
           {this.state.acc2available ? "" : this.amount2Checkbox()}
@@ -114,7 +115,7 @@ class AccountPage extends React.Component {
             <option value="savings">Savings</option>
             <option value="misc">Misc</option>
           </select>
-          <br />
+          <br /><br />
           <input type="submit" value="Submit" />
         </form>
 

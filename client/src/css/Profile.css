@@ -4,7 +4,7 @@
   padding: 20px;
 }
 
-nav {
+nav{
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -18,14 +18,13 @@ nav {
 .btn {
   display: block;
   width: 100%;
-  padding: 65px 50px;
-  background: rgb(6, 69, 146);
-  color: rgb(255, 255, 255);
+  padding: 50px 50px;
+  background: rgb(11, 110, 230);
   margin-left: 25%;
 }
 
 .btn:hover {
-  background: rgb(170, 170, 170);
+  background: rgb(172, 172, 172);
 }
 
 h1 {
@@ -47,7 +46,7 @@ nav {
 }
 
 .nav-links {
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-around;
   align-items: center;

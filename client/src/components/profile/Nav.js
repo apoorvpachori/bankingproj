@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import "../../css/Profile.css"
 function Nav() {
   return (
     <nav>

@@ -19,20 +19,26 @@ class Profile extends React.Component {
     } else {
       return (
         <div>
+          
           <h1>Welcome, {this.props.user.username}</h1>
+          
           <div className="optionsProfile">
             <Nav />
             <Switch>
               <Route path="/profile/AccountPage">
+              <hr/>
                 <AccountPage user={this.props.user} />
               </Route>
               <Route path="/profile/TransferPage">
+              <hr/>
                 <TransferPage user={this.props.user} />
               </Route>
               <Route path="/profile/DepositPage">
+              <hr/>
                 <DepositPage user={this.props.user} />
               </Route>
             </Switch>
+            
           </div>
           <Link to="/">Back</Link>
         </div>
