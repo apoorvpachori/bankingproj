@@ -19,9 +19,7 @@ class Profile extends React.Component {
     } else {
       return (
         <div>
-          
           <h1>Welcome, {this.props.user.username}</h1>
-          
           <div className="optionsProfile">
             <Nav />
             <Switch>
@@ -38,7 +36,6 @@ class Profile extends React.Component {
                 <DepositPage user={this.props.user} />
               </Route>
             </Switch>
-            
           </div>
           <Link to="/">Back</Link>
         </div>

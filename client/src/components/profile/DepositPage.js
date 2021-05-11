@@ -100,11 +100,11 @@ class DepositPage extends React.Component {
               <option value="misc">Misc</option>
             </select>
           </div>
-
           <div>
             <label>Date of Deposit: </label>
             <input type="date" name="date" required />
           </div>
+          <br/>
           <input type="submit" value="Submit" />
         </form>
       </div>

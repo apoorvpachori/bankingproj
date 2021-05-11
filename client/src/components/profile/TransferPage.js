@@ -126,7 +126,7 @@ class TransferPage extends React.Component {
         <h4>Misc Balance: {this.state.miscbalance ? `$${this.state.miscbalance}`:""}</h4>
         <br/>
         <form onSubmit={this.onTransfer}>
-          <h2>Select the account you want to transfer from: </h2>
+          Select the account you want to transfer from: 
           <label>Choose Account: </label>
           <select
             id="accountType"
@@ -139,7 +139,7 @@ class TransferPage extends React.Component {
           </select>
           <br />
           <br />
-          <h2>Select the account you want to transfer to: </h2>
+          Select the account you want to transfer to: 
           <label>Choose Account: </label>
           <select id="accountType" name="account" onChange={this.toNumHandler}>
             <option value="checking">Checking</option>
@@ -160,6 +160,7 @@ class TransferPage extends React.Component {
               onChange={this.amountHandler}
             />
           </div>
+          <br/>
           <input type="submit" value="Transfer" />
         </form>
       </div>
