@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import navlogo from "./logo192.png"
+import navlogo from "./logo192.png";
 
 import "../css/Navbar.css";
 class Navbar extends React.Component {
   render() {
     return (
-      <div >
-        <ul id="nav" >
+      <div>
+        <ul id="nav">
           <li>
-          <img src={navlogo} height='50' width='50'/>
+            <img src={navlogo} height="50" width="50" alt="" />
           </li>
           <li>
             <Link to="/">Home</Link>
@@ -26,9 +26,11 @@ class Navbar extends React.Component {
           <li>
             <Link to="/logout">Log out</Link>
           </li>
+          <li>
+            <Link to="/withdrawl">ATM</Link>
+          </li>
         </ul>
       </div>
-      
     );
   }
 }
