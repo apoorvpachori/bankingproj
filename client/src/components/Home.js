@@ -15,12 +15,13 @@ class Home extends React.Component {
         <br/><br/>
         <h5>About Creators</h5>  
         <p>This Banking Project was created by 6 students at the univeristy of SJSU</p> 
-        <p>Apoorv Pachori: Software Developer</p> 
-        <p>Thanh Nguyen: Software Engineer</p> 
-        <p>Chafik Aziz: Systems Engineer</p>
-        <p>Stephen Oneto: Sofwtare Engineer</p> 
-        <p> Kelly Nguyen: Software Engineer</p>
-        <p> Leonardo Blas: Software Engineer </p>
+        <br></br>
+        <p><i><b>Apoorv Pachori: Software Developer</b></i></p> 
+        <p><i><b>Thanh Nguyen: Software Engineer</b></i></p> 
+        <p><i><b>Chafik Aziz: Systems Engineer</b></i></p>
+        <p><i><b>Stephen Oneto: Sofwtare Engineer</b></i></p> 
+        <p><i><b>Kelly Nguyen: Software Engineer</b></i></p>
+        <p><i><b>Leonardo Blas: Software Engineer</b></i></p>
       </div>
     );
   }
