@@ -37,19 +37,18 @@ class DepositPage extends React.Component {
     await axios
       .get(`http://localhost:7000/users/${this.props.user.id}`)
       .then((res) => {
+        console.log(res);
         if (res.data[0].amount !== null) {
           this.setState({ checkingbalance: res.data[0].amount });
         }
         if (res.data[0].amount2 !== null) {
-          console.log(res.data[0].amount2);
           this.setState({ savingbalance: res.data[0].amount2 });
         }
         if (res.data[0].amount3 !== null) {
-          console.log(res.data[0].amount2);
-
           this.setState({ miscbalance: res.data[0].amount3 });
         }
       });
+    console.log(this.state);
   };
 
   onDeposit = async (e) => {
@@ -67,14 +66,29 @@ class DepositPage extends React.Component {
   };
 
   render() {
+    console.log(this.state);
+    console.log(this.state.checkingbalance === null);
     return (
       <div>
         <h1>Deposit Page</h1>
-        <hr/>
-        <h4>Checking Balance: {this.state.checkingbalance ? `$${this.state.checkingbalance}`:""}</h4>
-        <h4>Savings Balance: {this.state.savingbalance ? `$${this.state.savingbalance}`:""}</h4>
-        <h4>Misc Balance: {this.state.miscbalance ? `$${this.state.miscbalance}`:""}</h4>
-        <br/>
+        <hr />
+        <h4>
+          Checking Balance:{" "}
+          {this.state.checkingbalance !== null
+            ? `$${this.state.checkingbalance}`
+            : ""}
+        </h4>
+        <h4>
+          Savings Balance:{" "}
+          {this.state.savingbalance !== null
+            ? `$${this.state.savingbalance}`
+            : ""}
+        </h4>
+        <h4>
+          Misc Balance:{" "}
+          {this.state.miscbalance !== null ? `$${this.state.miscbalance}` : ""}
+        </h4>
+        <br />
         <form className="my-form" onSubmit={this.onDeposit}>
           <label>Please upload the front of the check: </label>
           <input type="file" required />
@@ -104,7 +118,7 @@ class DepositPage extends React.Component {
             <label>Date of Deposit: </label>
             <input type="date" name="date" required />
           </div>
-          <br/>
+          <br />
           <input type="submit" value="Submit" />
         </form>
       </div>
