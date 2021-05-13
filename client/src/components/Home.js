@@ -10,12 +10,20 @@ class Home extends React.Component {
         <img src={logo} height="250" width="200" alt="" />
         <br />
         <br />
-        <p>This Banking Project was created by 6 students</p>
         <p>
-          This project was created by coding in JavaScript and the database is
-          MySQL{" "}
+          This project was created using React.js, Node.js and MySQL hosted on an Amazon Web Server as the database.
         </p>
-        <p>add more info about the project...</p>
+        <p>
+          This banking project has the features you would expect any bank to have such as opening closing accounts,
+          tranfering funds to different accounts, depositing funds, and withdrawing funds.
+        </p>
+        <h3>About the Creators</h3>
+        <p>
+          Created by 6 students at San Jose State University, Spring 2021, CMPE 131
+        </p>
+        <p>
+          Apoorv Pachori, Thanh Nguyen, Chafik Aziz, Stephen Oneto, Kelly Nguyen, Leonardo Blas
+        </p>
       </div>
     );
   }
