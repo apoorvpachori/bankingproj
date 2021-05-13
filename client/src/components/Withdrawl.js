@@ -55,6 +55,22 @@ class Withdrawl extends React.Component {
     e.preventDefault();
     console.log(this.state.num);
     console.log(this.state.amount);
+    if (this.state.num === 1) {
+      if (this.state.amount > this.state.checkingbalance) {
+        window.alert("Not enough funds available");
+        return;
+      }
+    } else if (this.state.num === 2) {
+      if (this.state.amount > this.state.savingbalance) {
+        window.alert("Not enough funds available");
+        return;
+      }
+    } else if (this.state.num === 3) {
+      if (this.state.amount > this.state.miscbalance) {
+        window.alert("Not enough funds available");
+        return;
+      }
+    }
     await axios
       .post(`http://localhost:7000/users/${this.props.user.id}`, {
         num: this.state.num,
