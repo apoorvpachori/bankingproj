@@ -36,6 +36,9 @@ class Withdrawl extends React.Component {
   };
 
   updateBalance = async () => {
+    if (this.props.user === "") {
+      window.location.href = "/";
+    }
     await axios
       .get(`http://localhost:7000/users/${this.props.user.id}`)
       .then((res) => {
